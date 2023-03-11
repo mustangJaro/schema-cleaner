@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "dedupFile": "run-func index.js processFile"
+  },
+  "dependencies": {
+    "run-func": "^3.0.0"
+  }
+}
