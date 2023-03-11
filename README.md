@@ -1,7 +1,7 @@
 # Description
 This app will deduplicate any `objects` and `fields` within the provided JSON file. Duplicates are identified by all matching fields/values except for any `_id` values. It will output a file named `clean_application.json` with the cleaned schema.
 
-I opted to use a recursive technique for this solution, which can help with performance and scalability. However, the potential downside is that it can make it more difficult to maintain. An alternate way to solve this problem would be to "hard-code" different paths to inspect, but the largest downside there is scaling when other fields need de-duplication. 
+I opted to use a recursive technique for this solution, which can help with performance and scalability. However, the potential downside is that it can make it more difficult to maintain. An alternate way to solve this problem would be to "hard-code" different paths to inspect, but the largest downside there is scaling when other fields need de-duplication. I added more documentation that would help me and other developers when this code needs to be changed to assist in maintainability.
 
 
 ## How to Run

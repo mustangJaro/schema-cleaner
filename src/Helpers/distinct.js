@@ -10,9 +10,17 @@ const hashObject = (jsonObject) => {
 };
 
 /**
+ * Recursive call to `distinct` to remove duplicates and produce a unique hash->object collection.
  *
  * @param {Array}  coll        A collection of objects that have at least an `_id` field
  * @param {Object} dedupMap    A object that indicates what sub-objects might need to be de-duplicated
+ * Example:
+ *    {fields: {dedupProcess: true,
+ *              rules:        {dedupProcess: true}
+ *             }
+ *    }
+ *
+ *
  * @returns                    An object of hash->object so that each object can be uniquely identified by it's hash
  */
 const hashCollection = (coll, dedupMap) => {
@@ -26,6 +34,7 @@ const hashCollection = (coll, dedupMap) => {
     let resultantColl = coll.reduce((accum, currentValue) => {
       //make sure we de-duplicate any subfields within the current context
       subFields.map((subField) => {
+        // recursive call here
         currentValue[subField] = distinct(
           currentValue[subField],
           dedupMap[subField]
@@ -50,7 +59,7 @@ const hashCollection = (coll, dedupMap) => {
  *                             Duplicates are identified where all fields/values match except for the `_id` field
  */
 const distinct = (coll, dedupMap) => {
-  if(coll){
+  if (coll) {
     return Object.values(hashCollection(coll, dedupMap));
   }
 };
