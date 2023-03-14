@@ -1,6 +1,3 @@
-### How to submit your solution
-- Please send us a zip or a tar of the `node-coding-exercise-master` directory which should include your application
-
 # Description
 This app will deduplicate any `objects` and `fields` within the provided JSON file. Duplicates are identified by all matching fields/values except for any `_id` values. It will output a file named `clean_application.json` with the cleaned schema.
 
@@ -23,5 +20,5 @@ npm test
 ```
 
 ## TODO
-[] Handle cases where we want children to de-duplicate, but not the parent entity
-[] Make the `_id` field a configurable argument
+- [ ] Handle cases where we want children to de-duplicate, but not the parent entity
+- [ ] Make the `_id` field a configurable argument
